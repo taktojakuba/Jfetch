@@ -1,7 +1,7 @@
 all: Jfetch
 
 Jfetch: main.cpp
-	g++ -std=c++17 -Os main.cpp -o jf
+	g++ -std=c++17 -Os -march=native -flto main.cpp -o jf
 
 install: Jfetch
 	cp jf /usr/local/bin/jf
