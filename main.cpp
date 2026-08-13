@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 #include <cstdlib>
-#include <vector>
+#include <array>
 
 using namespace std;
 
@@ -92,7 +92,7 @@ string get_uptime()
 }
 int main(int argc, char* argv[])
 {
-  vector<string> info = {
+  array<string, 7> info = {
     "Host: " + get_hostname(),
     "OS: " + get_osname(),
     "Kernel: " + get_kernel(),
@@ -101,7 +101,6 @@ int main(int argc, char* argv[])
     "WM: " + get_wm(),
     "Uptime: " + get_uptime()
   };
-
   if (argc < 2) 
   {
     for(int i = 0;i<info.size();i++){
@@ -112,21 +111,14 @@ int main(int argc, char* argv[])
   //get file content lines
   ifstream file(argv[1]);
   string line;
-  vector<string> lines;
-  //push file lines to vector
-  while (getline(file, line))
-  {
-    lines.push_back(line);
-  }
-  // print out vector with info
-  for (size_t i = 0; i < lines.size(); i++)
-  {
-      cout << lines[i];
-      if (i < info.size())
-      {
+  size_t i = 0;
+  while (getline(file, line)) {
+    cout << line;
+    if (i < info.size()) {
         cout << "  " << info[i];
-      }
-      cout << endl;
-  }
+    }
+    cout << endl;
+    ++i;
+}
   return 0;
 }
