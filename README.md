@@ -1,4 +1,4 @@
-## Jfetch
+## Justfetch
 # c++ suckless system info fetch tool for linux
 <img src="./Github/preview.png">
 <b>Install</b><br>
