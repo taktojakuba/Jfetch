@@ -70,7 +70,23 @@ string get_term()
   return term;
 }
 
+string get_uptime()
+{
+  ifstream uptime_file("/proc/uptime");
+  double uptime_seconds = 0;
+  uptime_file >> uptime_seconds;
 
+  int total_seconds = static_cast<int>(uptime_seconds);
+  int hours = total_seconds / 3600;
+  int minutes = (total_seconds % 3600) / 60;
+
+  string result;
+  if (hours > 0)
+    result += to_string(hours) + "h ";
+  result += to_string(minutes) + "m";
+
+  return result;
+}
 int main(int argc, char* argv[])
 {
   vector<string> info = {
@@ -79,7 +95,8 @@ int main(int argc, char* argv[])
     "Kernel: " + get_kernel(),
     "Shell: " + get_shell(),
     "Term: " + get_term(),
-    "WM: " + get_wm()
+    "WM: " + get_wm(),
+    "Uptime: " + get_uptime()
   };
 
   if (argc < 2) 
