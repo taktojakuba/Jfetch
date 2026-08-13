@@ -62,7 +62,7 @@ string get_wm()
 string get_term()
 {
   string term;
-  const char* term_env = getenv("TERM_PROGRAM");
+  const char* term_env = getenv("TERM");
   if (term_env)
     term = term_env;
   else
