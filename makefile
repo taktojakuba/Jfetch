@@ -1,17 +1,17 @@
 all: Jfetch
 
 Jfetch: main.cpp
-	g++ -std=c++17 -Os main.cpp -o Jfetch
+	g++ -std=c++17 -Os main.cpp -o jf
 
 install: Jfetch
-	cp Jfetch /usr/local/bin/Jfetch
-	chmod +x /usr/local/bin/Jfetch
+	cp jf /usr/local/bin/jf
+	chmod +x /usr/local/bin/jf
 
 uninstall:
-	rm -f /usr/local/bin/Jfetch
+	rm -f /usr/local/bin/jf
 
 clean:
-	rm -f Jfetch
+	rm -f jf
 
 rebuild: clean all
 
