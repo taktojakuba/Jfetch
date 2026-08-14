@@ -1,5 +1,4 @@
 #include <iostream>
-#include <unistd.h>
 #include <fstream>
 #include <string>
 #include <cstdlib>
@@ -9,10 +8,12 @@ using namespace std;
 
 
 string get_hostname()
-{  
-  char hostname[256];
-  gethostname(hostname, sizeof(hostname));
-  return hostname;
+{
+    string hostname;
+    ifstream file("/etc/hostname");
+    getline(file, hostname);
+
+    return hostname;
 }
 
 string get_osname()
