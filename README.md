@@ -6,5 +6,5 @@
 <b>Uninstall</b><br>
 cd JustFetch && sudo make uninstall && cd .. && rm -rf JustFetch<br>
 <b>ussage</b><br>
-js -- no art<br>
-js /path/to/ascii -- stats with art<br>
+jf -- no art<br>
+jf /path/to/ascii -- stats with art<br>
