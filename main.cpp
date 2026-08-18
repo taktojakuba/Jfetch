@@ -10,19 +10,20 @@
 #include "modules/wm.h"
 #include "modules/term.h"
 #include "modules/uptime.h"
-
+#include "modules/packages.h"
 using namespace std;
 
 int main(int argc, char* argv[])
 {
-  array<string, 7> info = {
+  array<string, 8> info = {
     "Host: " + get_hostname(),
     "OS: " + get_osname(),
     "Kernel: " + get_kernel(),
     "Shell: " + get_shell(),
     "Term: " + get_term(),
     "WM: " + get_wm(),
-    "Uptime: " + get_uptime()
+    "Uptime: " + get_uptime(),
+    "Packages: " + get_packages()
   };
   if (argc < 2) 
   {
